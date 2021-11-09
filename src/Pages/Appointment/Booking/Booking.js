@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import BookingModel from '../BookingModel/BookingModel';
 
-const Booking = ({ booking,date }) => {
+const Booking = ({ booking,date,setBookingSuccess }) => {
     const { name, time, space } = booking;
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -30,6 +30,7 @@ const Booking = ({ booking,date }) => {
                 handleClose={handleClose}
                 open={open}
                 date={date}
+                setBookingSuccess={setBookingSuccess}
             ></BookingModel>
         </>
     );
