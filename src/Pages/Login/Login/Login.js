@@ -77,8 +77,8 @@ const Login = () => {
                                 </Alert>
                             }
                         </form>
-                            <p>--------------------</p>
-                            <Button onClick={hanndleGoogleSignIN} variant="contained">Google Sign In</Button>
+                        <p>----------------------------------------</p>
+                        <Button style={{ width: '75%' }} onClick={hanndleGoogleSignIN} variant="contained">Google Sign In</Button>
 
                     </Grid>
                     <Grid item xs={12} md={6}>

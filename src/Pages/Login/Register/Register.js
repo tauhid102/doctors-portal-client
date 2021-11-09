@@ -1,14 +1,14 @@
 import { Alert, AlertTitle, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import React, { useState } from 'react';
-import { NavLink,useHistory} from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import login from '../../../images/login.png';
 import { Box } from '@mui/system';
 const Register = () => {
     const [loginData, setLoginData] = useState({});
     const { user, registerUser, isLoading, authError } = useAuth();
-    const history=useHistory()
+    const history = useHistory()
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -23,7 +23,7 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password,loginData.name,history);
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
     return (
@@ -70,22 +70,22 @@ const Register = () => {
                             to="/login">
                             <Button variant="text">Already Registered? Please Login</Button>
                         </NavLink>
-                        {
-                            user?.email && <Alert severity="success">
-                                <AlertTitle>Success</AlertTitle>
-                                User Create Successfully <strong>Congrass</strong>
-                            </Alert>
-                        }
-                        {
-                            authError && <Alert severity="error">
-                                <AlertTitle>Error</AlertTitle>
-                                {authError}
-                            </Alert>
-                        }
                     </form>
                     {isLoading && <Box sx={{ display: 'flex' }}>
                         <CircularProgress />
                     </Box>}
+                    {
+                        user?.email && <Alert severity="success">
+                            <AlertTitle>Success</AlertTitle>
+                            User Create Successfully <strong>Congrass</strong>
+                        </Alert>
+                    }
+                    {
+                        authError && <Alert severity="error">
+                            <AlertTitle>Error</AlertTitle>
+                            {authError}
+                        </Alert>
+                    }
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%' }} src={login} alt="" />
