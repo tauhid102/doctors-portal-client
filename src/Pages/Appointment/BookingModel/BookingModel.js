@@ -20,7 +20,7 @@ const color = {
 }
 
 const BookingModel = ({ open, handleClose, booking, date,setBookingSuccess }) => {
-    const { name, time } = booking;
+    const { name, time,price } = booking;
     const {user}=useAuth();
 
     const initialInfo={patientName:user.displayName,email:user.email,phone:''}
@@ -41,6 +41,7 @@ const BookingModel = ({ open, handleClose, booking, date,setBookingSuccess }) =>
         const appointment={
             ...bookingInfo,
             time,
+            price,
             serviceName:name,
             date:date.toLocaleDateString()
         }
