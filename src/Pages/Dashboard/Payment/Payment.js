@@ -13,7 +13,7 @@ const Payment = () => {
         fetch(`http://localhost:5000/appointments/${id}`)
             .then(res => res.json())
             .then(data => setAppointments(data));
-    }, [])
+    }, [id])
     return (
         <div>
             <h1>Pay For: {appointments.patientName} for <span className='text-dangen'>{appointments.serviceName}</span> </h1>
